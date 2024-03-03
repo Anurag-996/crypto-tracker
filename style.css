@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+}
+
+body{
+    background: #1A1A1C;
+}
+
+img{
+    padding: 1rem;
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+    height: fit-content;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.input-con{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 33px;
+}
+
+.input-con>input{
+    min-width: 50%;
+    width: 65%;
+    padding-left: 1rem;
+    border: 1px solid #8E8E8E;
+    background-color: transparent;
+    color: #fff;
+    font-weight: 400;
+}
+
+.input-con > button{
+    padding: 0.2rem 1rem;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 1px solid #8E8E8E;
+    color: #fff;
+}
+
+.input-con>input::placeholder{
+    color: #fff;
+}
+
+.input-con>input:focus::placeholder{
+    opacity: 0.5;
+}
+
+
+.coin-info-container{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.coin-info-container  img{
+    width: 3rem;
+}
+
+.coin-info{
+    display: flex;
+    width: 100%;
+    color: #fff;
+    border-bottom:  1px solid #fff;
+}
+.details{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr 1fr 2fr;
+    align-items: center;
+    text-align: start;
+    width: 80%;
+}
+
+.details span{
+    padding-left: 1rem;
+}
+
+.img-con{
+    display: flex;
+    width: 15%;
+    align-items: center ;
+    text-align: start;
+}
+
+.red{
+    color: red;
+}
+.green{
+    color: green;
+}
