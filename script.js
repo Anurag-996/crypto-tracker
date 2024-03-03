@@ -1,8 +1,9 @@
-let arr;
-
 const apiUrl = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false';
 
 // Fetch data using .then
+
+let newdata;
+
 fetch(apiUrl)
   .then(response => {
     if (!response.ok) {
@@ -21,7 +22,7 @@ async function fetchDataAsync() {
     }
     const data = await response.json();
     console.log(data);
-    arr = data;
+    newdata = data;
     renderTable(data);
     createSearchFunctionality(data);
   } catch (error) {
@@ -30,7 +31,9 @@ async function fetchDataAsync() {
 }
 fetchDataAsync();
 
+
 function renderTable(data) {
+    document.getElementById('con').innerHTML = "";
   // Create a new div element for the table body
   const tableBody = document.createElement('div');
   // Set the class attribute for the table body
@@ -55,28 +58,16 @@ function renderTable(data) {
   });
              
   // Append the table body to the container element
-  document.querySelector('.container').appendChild(tableBody);
+  document.querySelector('#con').appendChild(tableBody);
 }
 
-// function createSearchFunctionality(data) {
-//   const searchInput = document.querySelector('input[type="text"]');
-//   searchInput.addEventListener('input', function() {
-//     const searchTerm = this.value.toLowerCase();
-//     const filteredData = data.filter(item => {
-//       return (
-//         item.name.toLowerCase().includes(searchTerm) ||
-//         item.symbol.toLowerCase().includes(searchTerm)
-//       );
-//     });
-//     renderTable(filteredData);
-//   });
-// }
 
 
 let searchData = () => {
     let input = search_input.value;
-    let search_output = arr.filter((ele) => {
-        return ele.name.toLowerCase().includes(input) || ele.name.toLowerCase().includes(input);;
+    console.log(input);
+    let search_output = newdata.filter((ele) => {
+        return ele.name.toLowerCase().includes(input) || ele.symbol.toLowerCase().includes(input);
     });
     renderTable(search_output);
 }
@@ -85,7 +76,6 @@ let search_input = document.getElementById("search");
 search_input.addEventListener("input", searchData);
 
 
-// Add event listeners for both sorting buttons
 document.getElementById('sortbypercentage').addEventListener('click', function() {
     sortTableByPercentage('.market-change');
   });
